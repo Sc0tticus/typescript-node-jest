@@ -1,8 +1,15 @@
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test, beforeAll, beforeEach } from '@jest/globals';
 import { parse } from 'path/posix';
 import { Utils } from '../app/Utils';
 
 describe('Utils test suite', () => {
+
+	beforeEach(() => {
+		console.log('before each');
+	});
+	beforeAll(() => {
+		console.log('before all');
+	})
 	test('first test', () => {
 		const result = Utils.toUpperCase('abc');
 		expect(result).toBe('ABC');
@@ -23,6 +30,6 @@ describe('Utils test suite', () => {
 		}
 		expect(parsedUrl.query).toEqual(expectedQuery);
 		expect(expectedQuery).toEqual(expectedQuery);
-
 	});
+	test.todo('test invalid URL');
 });
